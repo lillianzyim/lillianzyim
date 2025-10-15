@@ -1,0 +1,396 @@
+/* 6 different animation keyframe rules */
+/* 2 clip-path functions */
+/* Pseudocode (LET'S USE EVERYTHING PSEUDOCODE IS COOLIO DONT BE A FOOLIO)*/
+/* shape-outside */
+/* 8 unique images (non-background) */
+/* 8 pages story */
+
+/* TO DEAD CENTER A DIV, YOU POSITION IT 50VH AND 50VW, THEN TRANSLATE THE BOX 50% OF THE DIV SIZE*/
+    /* position: absolute;
+    top: 50vh; /*halfway down the page*/
+    /* left: 50vw; halfway right the page */
+    /* transform: translate(-50%, -50%); DEAD CENTER DIV BOX, 50% of the DIV SIZE */
+
+/* INDEX */
+@keyframes openingtitle {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@keyframes lightsnow {
+    0% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateY(100%)
+    }
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+#TitleScreen {
+    /* background, title, opening */
+    width: 100vw;
+    height: 100vh;
+    background-image: url(sprites/titlescreen.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    animation-name: openingtitle;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#LitS {
+    width: 50vh;
+    height:20vh;
+    
+    font-weight: bold;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 20px rgba(244, 208, 111, 20);
+    font-size: 4rem;
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+}
+
+#backbutton {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 255, 0);
+    clip-path: polygon(90.25% 0%, 90.25% 100%, 6.9% 50%, 6.9% 100%, 0% 100%, 0% 0%, 6.9% 0%, 6.9% 50%);
+    
+    position: absolute;
+    bottom: 4vh;
+    left: 2vw;
+    font-size: 1.5rem;
+    text-indent: 2%;
+    color: white;     
+}
+
+#startbutton {
+    /* equilateral triangle*/
+    /* margin: 0 15px;
+    padding: 0.5rem 1rem;
+    width: 150px;
+    height: calc(tan(60deg) * 150px / 2);
+    display: inline-block; 
+    clip-path: polygon(0 0, 100% 0, 50% 100%); actually none of this is necessary wth*/
+    
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 255, 0);
+    clip-path: polygon(0 0, 0% 100%, 85% 50%);
+
+    /* TO DEAD CENTER A DIV, YOU POSITION IT 50VH AND 50VW, THEN TRANSLATE THE BOX 50% OF THE DIV SIZE*/
+    position: absolute;
+    bottom: 4vh;
+    right: 2vw;
+    font-size: 2rem;
+    text-indent: 2px;
+    color: white;    
+
+}
+
+#startbutton:hover {
+    box-shadow: 20px 20px 20px rgba(244, 208, 111, 20);
+}
+
+#snoweffect {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -100vh;
+    opacity: 0;
+    background-image: url(sprites/snow.png);
+    overflow: hidden;
+    animation-name: lightsnow;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes dialoguebounce {
+    0% {
+        transform: translate(0), scale(75%);
+    }
+    50% {
+        transform: scale(75%);
+        /* transform: translate(0%, 2%); */
+        transform: rotate(5deg);
+        /* transform: translate(0); */
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: translate(0), scale(75%);
+    }
+}
+#introhanging {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(sprites/Snowfall_Village_Tree.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#narrator {
+    width: 100vw;
+    height: auto;
+    position: absolute; /*POSITION EVERYTHING CUZ WTF*/
+    top: 0;
+    left: 0;
+    padding-left: 1%;
+    /* padding-right: 1%; */   
+    
+    background-color: rgba(80, 206, 84, 0.5);
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+#villager {
+    width: 396px;
+    height: 548px;
+    transform: scale(75%);
+    background-image: url(sprites/Snowfall_villager.png);
+    overflow: hidden;
+    image-rendering: crisp-edges;
+
+    position: absolute;
+    /* fix the positioning bruh */
+    bottom: 2%;
+    left: 10vw;
+
+    animation-name: dialoguebounce;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+    
+}
+#youngin {
+    width: 406px;
+    height: 493px;
+    transform: scale(75%);
+    background-image: url(sprites/Young_snowfall_villager.png);
+    overflow: hidden;
+    position: absolute;
+    bottom: 1%;
+    right: 10vw;
+    
+    animation-name: dialoguebounce;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+    
+}
+
+@keyframes hanglantern {
+    0% {
+        /* transform: scale(60%); */
+        transform: translate(0%);
+    }
+    25% {
+        /* transform: scale(60%); */
+        transform: translate(150%, -10%)
+    }
+    50% {
+        /* transform: scale(60%); */
+        transform: translate(100%, -100%);
+    }
+    75% {
+        /* transform: scale(60%); */
+        transform: translate(50%, 0%)
+    }
+    100% {
+        /* transform: scale(60%); */
+        transform: translate(200%, 0%);
+    }
+}
+#tree {
+    width: 40vw;
+    height: 60vh;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    overflow: hidden;
+    /* background-color: red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    /* transform-origin: 0,0; */
+    transform: translate(-50%, -50%);
+    
+}
+#lantern {
+    width: 164px;
+    height: 200px;
+    background-image: url(sprites/lantern.png);    
+    transform: scale(60%);
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    box-shadow: 10px 10px 100px rgb(250, 199, 72);
+    
+}
+#lantern:active {
+    animation-name: hanglantern;
+    animation-duration: 5s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+}
+
+p:nth-child(1) {
+    font-weight: bold;
+}
+
+#climbingmt {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(sprites/Lantern_in_the_snow_snowfall_village.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+@keyframes walk {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(75vw);
+    }
+}
+
+#cottonclimbing {
+    width: 350px;
+    height: 350px;
+    background-image: url(sprites/Cotton_default.png);
+    overflow: hidden;
+
+    position: absolute;
+    /* fix the positioning bruh */
+    bottom: 10vh;
+    left: 0;
+
+    animation-name: walk;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#catchup {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(sprites/Lantern_in_the_snow_sherbet_room_1.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+@keyframes hop {
+    0% {
+        transform: translate(0%);
+    }
+    50% {
+        transform: translateY(4%) scale(101%);
+    }
+    100% {
+        transform: translate(0%);
+    }
+}
+#cottonshare {
+    width: 350px;
+    height: 350px;
+    background-image: url(sprites/Cotton_happy.png);
+    overflow: hidden;
+
+    position: absolute;
+    /* fix the positioning bruh */
+    bottom: 10vh;
+    left: 25vw;
+
+    animation-name: hop;
+    animation-duration: 1s;
+    animation-iteration-count: 9;
+}
+#sherbetshare {
+    width: 253px;
+    height: 350px;
+    background-image: url(sprites/Sherbet_npc_sprite_default.png);
+    overflow: hidden;
+
+    position: absolute;
+    /* fix the positioning bruh */
+    bottom: 10vh;
+    right: 25vw;
+
+    animation-name: hop;
+    animation-duration: 2s;
+    animation-iteration-count: 4;
+}
+#frostwindow {
+    width: 150vw;
+    height: 150vh;
+    background-image: url(sprites/Lantern_in_the_snow_sherbet_room_1.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+@keyframes frostform {
+    0%, 100% {
+        opacity: 0%;
+    }
+    50% {
+        opacity: 50%;
+    }
+}
+#curtain {
+    width: 55%;
+    height: 100%;
+    background-image: url(sprites/frostwindow.png);
+    opacity: 50%;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    shape-outside: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    
+    float: right;
+    position: absolute;
+    top:0;
+    right:0;
+
+    animation-name: frostform;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+#frostwrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 20vh;
+    z-index: 0;
+    font-size: 2rem;
+    color: white;
+}
