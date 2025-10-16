@@ -112,7 +112,8 @@ body {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: -100vh;
+    top: 0vh;
+    z-index: 0;
     opacity: 0;
     background-image: url(sprites/snow.png);
     overflow: hidden;
@@ -385,12 +386,10 @@ p:nth-child(1) {
     animation-iteration-count: infinite;
 }
 #frostwrap {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 100vw;
     height: 20vh;
     z-index: 0;
     font-size: 2rem;
     color: white;
+    padding-left: 2%;
 }
